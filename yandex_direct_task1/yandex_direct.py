@@ -165,5 +165,9 @@ file = open("data.csv", "w")
 file.write(req.text)
 file.close()
 result_frame = pd.read_csv("data.csv", header=1, sep='	', index_col=0, )
-
-print(result_frame)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.expand_frame_repr', False)
+pd.set_option('max_colwidth', -1)
+pd['Cost'] = pd['Cost'] / 1000000
+pd['AvgCpc'] = pd['AvgCpc'] / 1000000
+pd['CostPerConversion'] = pd['CostPerConversion'] / 1000000
